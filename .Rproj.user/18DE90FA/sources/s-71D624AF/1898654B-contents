@@ -1,0 +1,11 @@
+df <- read.csv('cancer_reg.csv')
+head(df)
+library(dbplyr)
+colnames(df)
+
+df2 <- df[c("medincome", "medianage", "target_deathrate")]
+head(df2)
+summary(df2)
+fit <- lm(target_deathrate ~  medincome+medianage, data=df2)
+summary(fit) # show results
+help(lm)
